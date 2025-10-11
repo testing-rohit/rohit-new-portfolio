@@ -73,9 +73,11 @@ const Hero = () => {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="mb-8"
           >
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary to-accent-cyan flex items-center justify-center text-5xl font-bold text-white glow-primary">
-              RS
-            </div>
+          <img 
+            src="/Self_Image.png" 
+            alt="Rohit Sharma" 
+            className="w-32 h-32 mx-auto rounded-full object-cover glow-primary"
+           />
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -107,7 +109,7 @@ const Hero = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button size="lg" variant="outline" className="glass-card hover:glow-accent" asChild>
-                <a href="#" className="flex items-center gap-2">
+                <a href="#resume_link" className="flex items-center gap-2">
                   <Download className="w-4 h-4" />
                   Download Resume
                 </a>
@@ -150,7 +152,7 @@ const Hero = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           >
-            <ArrowDown className="w-6 h-6 text-muted-foreground" />
+            {/* <ArrowDown className="w-6 h-6 text-muted-foreground" /> */}
           </motion.div>
         </motion.div>
       </div>

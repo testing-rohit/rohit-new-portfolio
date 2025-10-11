@@ -55,7 +55,7 @@ const StatCounter = ({ end, label, suffix = "", prefix = "" }: StatProps) => {
 const CounterStats = () => {
   return (
     <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
-      <StatCounter end={3} label="Years Experience" suffix="+" />
+      <StatCounter end={1} label="Years Experience" suffix="+" />
       <StatCounter end={15} label="Open Source Projects" suffix="+" />
       <StatCounter end={5} label="Certifications" />
     </div>

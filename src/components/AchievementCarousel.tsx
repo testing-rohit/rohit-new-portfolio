@@ -10,6 +10,7 @@ const achievements = [
     year: "2025",
     description: "Certified in OCI development and cloud architecture",
     color: "from-orange-500 to-red-500",
+    certificate: "/OCI_Certificate.jpg",
   },
   {
     icon: Code,
@@ -20,7 +21,7 @@ const achievements = [
   },
   {
     icon: Star,
-    title: "GSoC 2025 Finalist",
+    title: "Google Summer of Code 2025 Finalist",
     year: "2025",
     description: "OWASP PyGoat Project",
     color: "from-blue-500 to-cyan-500",
@@ -28,7 +29,7 @@ const achievements = [
   {
     icon: Users,
     title: "Smart India Hackathon",
-    year: "2024",
+    year: "2025",
     description: "Top 50 / 300 Teams at JECRC Prelims",
     color: "from-green-500 to-emerald-500",
   },
@@ -51,6 +52,7 @@ const achievements = [
 const AchievementCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -64,6 +66,7 @@ const AchievementCarousel = () => {
 
   return (
     <div className="relative max-w-7xl mx-auto">
+      {/* Left Scroll Button */}
       <Button
         variant="outline"
         size="icon"
@@ -73,6 +76,7 @@ const AchievementCarousel = () => {
         <ChevronLeft className="w-5 h-5" />
       </Button>
 
+      {/* Achievement Cards */}
       <div
         ref={scrollRef}
         className="flex gap-6 overflow-x-auto scrollbar-hide px-12 py-4"
@@ -86,6 +90,7 @@ const AchievementCarousel = () => {
             onMouseLeave={() => setHoveredIndex(null)}
             whileHover={{ scale: 1.05, y: -10 }}
             transition={{ duration: 0.3 }}
+            onClick={() => achievement.certificate && setSelectedCert(achievement.certificate)}
           >
             <div
               className={`absolute inset-0 bg-gradient-to-br ${achievement.color} opacity-0 transition-opacity duration-300`}
@@ -116,6 +121,7 @@ const AchievementCarousel = () => {
         ))}
       </div>
 
+      {/* Right Scroll Button */}
       <Button
         variant="outline"
         size="icon"
@@ -124,6 +130,21 @@ const AchievementCarousel = () => {
       >
         <ChevronRight className="w-5 h-5" />
       </Button>
+
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => setSelectedCert(null)}
+        >
+          <img
+            src={selectedCert}
+            alt="Certificate"
+            className="max-w-full max-h-full rounded-lg shadow-lg"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+          />
+        </div>
+      )}
 
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -135,3 +156,4 @@ const AchievementCarousel = () => {
 };
 
 export default AchievementCarousel;
+
