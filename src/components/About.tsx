@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import MorphingBlob from "./MorphingBlob";
+import CounterStats from "./CounterStats";
 
 const About = () => {
   const ref = useRef(null);
@@ -20,8 +22,10 @@ const About = () => {
             About <span className="text-gradient">Me</span>
           </h2>
 
-          <div className="glass-card p-8 md:p-12 rounded-2xl">
-            <p className="text-lg leading-relaxed mb-6">
+          <div className="glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden">
+            <MorphingBlob />
+            <div className="relative z-10">
+              <p className="text-lg leading-relaxed mb-6">
               I'm a Computer Science Engineering student and frontend developer passionate about building modern, 
               scalable, cloud-integrated web applications.
             </p>
@@ -34,9 +38,11 @@ const About = () => {
               Certified <span className="text-primary font-semibold">Oracle Cloud Infrastructure Developer</span> and 
               <span className="text-primary font-semibold"> Hacktoberfest 2025 Top 10k Contributor</span> with 6 merged PRs.
             </p>
-            <p className="text-lg leading-relaxed">
-              I bring <span className="text-gradient font-semibold">adaptability, collaboration, and problem-solving</span> to every project.
-            </p>
+              <p className="text-lg leading-relaxed">
+                I bring <span className="text-gradient font-semibold">adaptability, collaboration, and problem-solving</span> to every project.
+              </p>
+            </div>
+            <CounterStats />
           </div>
         </motion.div>
       </div>

@@ -37,14 +37,14 @@ const Blog = () => {
             Blog & <span className="text-gradient">Notes</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="columns-1 md:columns-2 gap-8 max-w-5xl mx-auto space-y-8">
             {blogPosts.map((post, index) => (
               <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all group cursor-pointer"
+                className="glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all group cursor-pointer break-inside-avoid mb-8"
               >
                 <div className="relative overflow-hidden">
                   <img

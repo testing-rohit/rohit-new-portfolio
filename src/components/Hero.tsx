@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, Download, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ParticleBackground from "./ParticleBackground";
+import FloatingIcons3D from "./FloatingIcons3D";
 
 const Hero = () => {
   const achievements = [
@@ -24,7 +26,13 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent-purple/5 to-accent-cyan/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent-purple/10 to-accent-cyan/10" />
+      <ParticleBackground />
+      
+      {/* 3D Floating Icons */}
+      <div className="absolute inset-0 opacity-60">
+        <FloatingIcons3D />
+      </div>
       
       {/* Floating orbs */}
       <motion.div
@@ -89,15 +97,22 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <Button size="lg" className="glow-primary" asChild>
-              <a href="#projects">View Projects</a>
-            </Button>
-            <Button size="lg" variant="outline" className="glass-card" asChild>
-              <a href="#" className="flex items-center gap-2">
-                <Download className="w-4 h-4" />
-                Download Resume
-              </a>
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" className="glow-primary relative overflow-hidden group" asChild>
+                <a href="#projects">
+                  <span className="relative z-10">View Projects</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent-purple to-accent-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" variant="outline" className="glass-card hover:glow-accent" asChild>
+                <a href="#" className="flex items-center gap-2">
+                  <Download className="w-4 h-4" />
+                  Download Resume
+                </a>
+              </Button>
+            </motion.div>
           </div>
 
           <motion.div
