@@ -57,7 +57,7 @@ const CounterStats = () => {
     <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
       <StatCounter end={1} label="Years Experience" suffix="+" />
       <StatCounter end={15} label="Open Source Projects" suffix="+" />
-      <StatCounter end={5} label="Certifications" />
+      <StatCounter end={8} label="Certifications" />
     </div>
   );
 };

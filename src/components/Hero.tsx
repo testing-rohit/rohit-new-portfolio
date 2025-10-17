@@ -109,7 +109,7 @@ const Hero = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button size="lg" variant="outline" className="glass-card hover:glow-accent" asChild>
-                <a href="#resume_link" className="flex items-center gap-2">
+                <a href="resume.pdf" className="flex items-center gap-2">
                   <Download className="w-4 h-4" />
                   Download Resume
                 </a>

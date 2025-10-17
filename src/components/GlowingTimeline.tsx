@@ -34,7 +34,7 @@ const experiences = [
     company: "CodSoft",
     role: "Full Stack Web Developer (Offer)",
     period: "2025",
-    description: "Offer received recently; not joined yet (waiting for Vultr response).",
+    description: "Offer received recently; not joined yet",
     tools: ["Full Stack Development"],
     icon: Briefcase,
     color: "from-orange-500 to-red-500",
