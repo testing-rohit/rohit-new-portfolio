@@ -10,7 +10,7 @@ const experiences = [
     description: "Enhanced documentation, drafted new features, mentored by industry experts.",
     tools: ["React", "Markdown", "Docker", "CI/CD"],
     icon: Building2,
-    color: "from-purple-500 to-pink-500",
+    color: "primary",
   },
   {
     company: "OpenGov Africa",
@@ -19,7 +19,7 @@ const experiences = [
     description: "Proposed and built new community features, improved accessibility and layout.",
     tools: ["React", "TailwindCSS", "Figma"],
     icon: Globe,
-    color: "from-blue-500 to-cyan-500",
+    color: "primary",
   },
   {
     company: "Share Bite",
@@ -28,7 +28,7 @@ const experiences = [
     description: "Enhanced dashboard UX and responsive components.",
     tools: ["React", "JavaScript", "CSS"],
     icon: UtensilsCrossed,
-    color: "from-green-500 to-emerald-500",
+    color: "primary",
   },
   {
     company: "CodSoft",
@@ -37,7 +37,7 @@ const experiences = [
     description: "Offer received recently; not joined yet",
     tools: ["Full Stack Development"],
     icon: Briefcase,
-    color: "from-orange-500 to-red-500",
+    color: "primary",
   },
 ];
 
@@ -55,41 +55,35 @@ const TimelineItem = ({ exp, index }: { exp: typeof experiences[0]; index: numbe
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="relative"
     >
-      {/* Glowing line connector */}
       {index < experiences.length - 1 && (
-        <div className="absolute left-1/2 top-20 w-0.5 h-full -translate-x-1/2 bg-gradient-to-b from-primary via-accent to-transparent" />
+        <div className="absolute left-1/2 top-20 w-px h-full -translate-x-1/2 bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
       )}
 
       <div className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
         <div className="flex-1" />
-        
-        {/* Central glowing node */}
-        <motion.div
-          className="relative z-10"
-          animate={inView ? { scale: [1, 1.2, 1] } : {}}
-          transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-        >
-          <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${exp.color} flex items-center justify-center shadow-lg`}>
-            <exp.icon className="w-8 h-8 text-white" />
+
+        <div className="relative z-10">
+          <div className="w-16 h-16 rounded-lg glass-card border border-primary/30 flex items-center justify-center relative">
+            <exp.icon className="w-8 h-8 text-primary" />
+            <div className="absolute inset-0 bg-primary/10 rounded-lg blur-xl" />
           </div>
-          <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${exp.color} blur-xl opacity-50 animate-pulse`} />
-        </motion.div>
+        </div>
 
         <div className="flex-1">
           <motion.div
-            className="glass-card p-6 rounded-2xl"
-            whileHover={{ scale: 1.02 }}
+            className="glass-card p-6 rounded-xl border border-white/10 hover:border-primary/30 transition-all duration-300"
+            whileHover={{ scale: 1.02, y: -5 }}
             transition={{ duration: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-1">{exp.company}</h3>
             <p className="text-primary font-semibold mb-2">{exp.role}</p>
-            <p className="text-sm text-muted-foreground mb-4">{exp.period}</p>
-            <p className="text-foreground/90 mb-4">{exp.description}</p>
+            <p className="text-sm text-gray-400 mb-4">{exp.period}</p>
+            <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
             <div className="flex flex-wrap gap-2">
               {exp.tools.map((tool, i) => (
                 <span
                   key={i}
-                  className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${exp.color} text-white`}
+                  className="px-3 py-1 text-xs font-medium rounded-md bg-primary/10 text-primary border border-primary/30"
                 >
                   {tool}
                 </span>

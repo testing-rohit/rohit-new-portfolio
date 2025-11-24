@@ -1,106 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 220 25% 97%;
-    --foreground: 240 10% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 250 80% 60%;
+    --primary: 263 70% 58%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-glow: 250 90% 70%;
-    --accent-cyan: 190 90% 55%;
-    --accent-purple: 270 80% 65%;
 
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 240 10% 20%;
+    --primary-glow: 263 70% 58%;
+    --accent-cyan: 180 100% 50%;
+    --accent-purple: 263 70% 58%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 240 5% 45%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
 
-    --accent: 190 90% 55%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 263 70% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 90%;
-    --ring: 250 80% 60%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 263 70% 58%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Glass effect colors */
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 220 15% 88% / 0.5;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(250 80% 60%), hsl(270 80% 65%));
-    --gradient-accent: linear-gradient(135deg, hsl(190 90% 55%), hsl(250 80% 60%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 25% 97%), hsl(240 30% 95%));
-    
-    /* Glow effects */
-    --glow-primary: 0 0 40px hsl(250 80% 60% / 0.3);
-    --glow-accent: 0 0 40px hsl(190 90% 55% / 0.3);
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.08;
   }
 
   .dark {
-    --background: 240 15% 8%;
+    --background: 0 0% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 240 12% 12%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 12% 12%;
+    --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 250 80% 65%;
+    --primary: 263 70% 58%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-glow: 250 90% 75%;
-    --accent-cyan: 190 90% 60%;
-    --accent-purple: 270 80% 70%;
 
-    --secondary: 240 10% 15%;
+    --primary-glow: 263 70% 58%;
+    --accent-cyan: 180 100% 50%;
+    --accent-purple: 263 70% 58%;
+
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 10% 18%;
-    --muted-foreground: 240 5% 60%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 190 90% 60%;
+    --accent: 263 70% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 20%;
-    --input: 240 10% 18%;
-    --ring: 250 80% 65%;
-    
-    /* Glass effect colors for dark mode */
-    --glass-bg: 240 12% 12% / 0.7;
-    --glass-border: 240 10% 25% / 0.5;
-    
-    /* Gradients for dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(250 80% 65%), hsl(270 80% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(190 90% 60%), hsl(250 80% 65%));
-    --gradient-hero: linear-gradient(180deg, hsl(240 15% 8%), hsl(240 15% 12%));
-    
-    /* Glow effects for dark mode */
-    --glow-primary: 0 0 60px hsl(250 80% 65% / 0.4);
-    --glow-accent: 0 0 60px hsl(190 90% 60% / 0.4);
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 263 70% 58%;
+
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.08;
   }
 }
 
@@ -112,27 +90,74 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    overflow-x: hidden;
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(263 70% 58% / 0.3);
+    color: hsl(0 0% 100%);
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700/50 shadow-xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
-  
+
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent-purple to-accent-cyan;
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  
+
   .glow-primary {
-    box-shadow: var(--glow-primary);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.2);
   }
-  
+
   .glow-accent {
-    box-shadow: var(--glow-accent);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.15);
+  }
+
+  .neon-border {
+    position: relative;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .neon-border:hover::before {
+    opacity: 1;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

@@ -35,19 +35,28 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 relative">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-32 relative">
+      <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
+          <div className="text-center mb-16">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              className="text-sm font-medium text-primary mb-4 tracking-widest uppercase"
+            >
+              My Work
+            </motion.p>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Featured <span className="text-gradient">Projects</span>
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={index}

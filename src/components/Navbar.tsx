@@ -41,22 +41,29 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card py-3 shadow-lg" : "py-5 bg-transparent"
+        scrolled
+          ? "glass-card backdrop-blur-xl border-b border-white/10 shadow-lg"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
-          <a href="#home" className="text-2xl font-bold text-gradient">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
+          <a
+            href="#home"
+            className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity"
+          >
             RS
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  activeSection === item.id
+                    ? "text-primary bg-primary/10"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {item.label}
@@ -68,7 +75,7 @@ const Navbar = () => {
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="rounded-full"
+            className="rounded-lg hover:bg-white/5"
           >
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
